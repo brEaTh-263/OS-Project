@@ -274,6 +274,13 @@ void ProcessManagement()
 				cout << " S" << (pid_probe + 1) << " --> S" << (col + 1) << "     (" << (pid_probe + 1) << "," << (pid_probe + 1) << "," << (col + 1) << ")" << endl;
 				detectDeadlock(wait_graph, pid_probe, col);
 			}
+			else
+			{
+		cout << "Deadlock detection not possbile. No proccess running in the system" << endl;
+			}
+
+	return 0;
+	}
 		}
 	}
 int main()
@@ -303,12 +310,6 @@ int main()
 	    ProcessManagement();
             break;		    
 	
-	else {
-		cout << "Deadlock detection not possbile. No proccess running in the system" << endl;
-	}
-
-	return 0;
-	}
 			
         default:
             break;
