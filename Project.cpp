@@ -279,7 +279,6 @@ void ProcessManagement()
 		cout << "Deadlock detection not possbile. No proccess running in the system" << endl;
 			}
 
-	return 0;
 	}
 		}
 	}
@@ -327,6 +326,4 @@ int main()
 
 	return 0;
 }
-
-
 
