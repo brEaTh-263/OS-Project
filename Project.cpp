@@ -230,31 +230,8 @@ void detectDeadlock(vector<std::vector<int>> &graph, int init, int dest)
 	}
 }
 
-int main()
+void ProcessManagement()
 {
-    int ch = 0;
-    do
-    {
-
-        cout << "Choose one from the following:"<<endl;
-        cout << "\n1.Memory Management";
-        cout << "\n2.I/O Management";
-	cout << "\n3.Process Management";
-        cout << "\n5.Exit";
-
-        cout << "\n\nEnter your choice:";
-        cin >> ch;
-        switch (ch)
-        {
-        case 1:
-            optimalPage();
-            break;
-
-        case 2:
-            scan();
-			
-	case 3:
-	{
         int pid_probe;
 	cout << "Enter the number of processes (minimum value greater than 1)" << endl;
 	cin >> no_proccesses;
@@ -299,6 +276,33 @@ int main()
 			}
 		}
 	}
+int main()
+{
+    int ch = 0;
+    do
+    {
+
+        cout << "Choose one from the following:"<<endl;
+        cout << "\n1.Memory Management";
+        cout << "\n2.I/O Management";
+	cout << "\n3.Process Management";
+        cout << "\n5.Exit";
+
+        cout << "\n\nEnter your choice:";
+        cin >> ch;
+        switch (ch)
+        {
+        case 1:
+            optimalPage();
+            break;
+
+        case 2:
+            scan();
+			
+	case 3:
+	    ProcessManagement();
+            break;		    
+	
 	else {
 		cout << "Deadlock detection not possbile. No proccess running in the system" << endl;
 	}
