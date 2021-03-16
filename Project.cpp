@@ -172,10 +172,11 @@ void optimalPage()
 
 
 
-int size = 8;
-int disk_size = 200;
+
 void scan()
 {
+    int size = 8;
+    int disk_size = 200;
     int arr[size] = { 176, 79, 34, 60, 92, 11, 41, 114 };
     int head;
     cout<<"\nEnter read/write head position: ";
@@ -190,8 +191,8 @@ void scan()
     else
         direction = "right";
 
-     int seek_count = 0;
-    int distance, cur_track;
+    int seek_count = 0;
+    int cur_track;
     vector<int> left, right;
     vector<int> seek_sequence;
 
@@ -207,31 +208,40 @@ void scan()
             right.push_back(arr[i]);
     }
 
-    std::sort(left.begin(), left.end());
-    std::sort(right.begin(), right.end());
+    sort(left.begin(), left.end());
+    sort(right.begin(), right.end());
 
     int run = 2;
-    while (run--) {
-        if (direction == "left") {
-            for (int i = left.size() - 1; i >= 0; i--) {
+    while (run--)
+    {
+        if (direction == "left")
+        {
+            for (int i = left.size() - 1; i >= 0; i--)
+            {
                 cur_track = left[i];
                 seek_sequence.push_back(cur_track);
-                distance = abs(cur_track - head);
-                seek_count += distance;
+                seek_count = seek_count + (cur_track - head);
                 head = cur_track;
             }
             direction = "right";
         }
-        else if (direction == "right") {
-            for (int i = 0; i < right.size(); i++) {
+
+
+
+        else if (direction == "right")
+        {
+            for (int i = 0; i < right.size(); i++)
+            {
                 cur_track = right[i];
+                cout<<cur_track;
                 seek_sequence.push_back(cur_track);
-                distance = abs(cur_track - head);
-                seek_count += distance;
+                seek_count = seek_count + (cur_track - head);
                 head = cur_track;
             }
+
             direction = "left";
         }
+
     }
 
     cout << "Total number of seek operations = "
